@@ -1,7 +1,9 @@
 # @12luckydev/utils
-
 [![npm (scoped)](https://img.shields.io/npm/v/@12luckydev/utils)](https://www.npmjs.com/package/@12luckydev/utils)
 [![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@12luckydev/utils)](https://github.com/12LuckyDev)
+
+Few helper funtions to work with arrays without mutation.
+Helpful with managing arrays in react.js state.
 
 ## Install
 
@@ -16,7 +18,6 @@ yarn add @12luckydev/utils
 ## Functions
 
 ### merge
-
 ```sh
 import { merge } from '@12luckydev/utils';
 
@@ -43,6 +44,27 @@ const input = [
 ];
 
 editAt(input, { id: 4, name: 'Ann' }, 1);
+/**
+    result: [
+        {id: 1, name: "Kevin"},
+        {id: 4, name: "Ann"},
+        {id: 3, name: "Bob"}
+]
+**/
+```
+
+### editByProp
+
+```sh
+import { editByProp } from '@12luckydev/utils';
+
+const input = [
+  { id: 1, name: 'Kevin' },
+  { id: 2, name: 'Karen' },
+  { id: 3, name: 'Bob' },
+];
+
+editByProp(input, { id: 4, name: 'Ann' }, 'id', 2)
 /**
     result: [
         {id: 1, name: "Kevin"},
