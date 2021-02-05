@@ -121,6 +121,14 @@ removeByProp(input, 'name', ['Karen', 'Bob']);
 **/
 ```
 
+### nMap
+
+```sh
+import { nMap } from '@12luckydev/utils';
+
+nMap(3, (i) => `${i} value`); //result: ["0 value", "1 value", "2 value"]
+```
+
 ### isObject
 
 ```sh
@@ -133,7 +141,7 @@ isObject({}, false); //result: true
 isObject([]); //result: false - arrays are excluded
 ```
 
-### nMap
+### isArray
 
 ```sh
 import { isArray } from '@12luckydev/utils';
