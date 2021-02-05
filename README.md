@@ -1,4 +1,5 @@
 # @12luckydev/utils
+
 [![npm (scoped)](https://img.shields.io/npm/v/@12luckydev/utils)](https://www.npmjs.com/package/@12luckydev/utils)
 [![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@12luckydev/utils)](https://github.com/12LuckyDev)
 
@@ -18,6 +19,7 @@ yarn add @12luckydev/utils
 ## Functions
 
 ### merge
+
 ```sh
 import { merge } from '@12luckydev/utils';
 
@@ -119,12 +121,29 @@ removeByProp(input, 'name', ['Karen', 'Bob']);
 **/
 ```
 
+### isObject
+
+```sh
+import { isObject } from '@12luckydev/utils';
+
+isObject(null); //result: true
+isObject({}); //result: true
+isObject(null, false); //result: false
+isObject({}, false); //result: true
+isObject([]); //result: false - arrays are excluded
+```
+
 ### nMap
 
 ```sh
-import { nMap } from '@12luckydev/utils';
+import { isArray } from '@12luckydev/utils';
 
-nMap(3, (i) => `${i} value`); //result: ["0 value", "1 value", "2 value"]
+isArray(null); //result: false
+isArray({}); //result: false
+isArray([]); //result: true
+isArray(["a", "b"]); //result: true
+isArray([], false); //result: false
+isArray(["a", "b"], false); //result: true
 ```
 
 ## License
