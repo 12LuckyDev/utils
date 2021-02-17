@@ -28,7 +28,7 @@ export const editAt = <T>(array: Array<T>, value: T, index: number): Array<T> =>
  * @param value Value with which objects will be deleted
  * @param propValue Property value after which the object is located
  */
-export const editByProp = <T>(array: Array<T>, value: T, key: keyof T, propValue?: any): Array<T> => {
+export const editByProp = <T, K extends keyof T>(array: Array<T>, value: T, key: K, propValue?: T[K]): Array<T> => {
   const propV = propValue ?? value[key];
   return array.map((v) => (v[key] === propV ? value : v));
 };
@@ -46,7 +46,7 @@ export const removeAt = <T>(array: Array<T>, index: number): Array<T> => array.f
  * @param key Property name of value to compare
  * @param propValue Value with which objects will be deleted
  */
-export const removeByProp = <T>(array: Array<T>, key: keyof T, propValue: any): Array<T> =>
+export const removeByProp = <T, K extends keyof T>(array: Array<T>, key: K, propValue: T[K]): Array<T> =>
   array.filter((v) => v[key] !== propValue);
 
 /**
@@ -55,7 +55,7 @@ export const removeByProp = <T>(array: Array<T>, key: keyof T, propValue: any): 
  * @param key Property name of value to compare
  * @param propValues Values with which objects will be deleted
  */
-export const removeByProps = <T>(array: Array<T>, key: keyof T, propValues: any): Array<T> =>
+export const removeByProps = <T, K extends keyof T>(array: Array<T>, key: K, propValues: Array<T[K]>): Array<T> =>
   array.filter((v) => !propValues.includes(v[key]));
 
 /**
