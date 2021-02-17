@@ -1,5 +1,3 @@
-type SimpleType = string | number | boolean;
-
 /**
  * Returns new array from merge
  * @param a First array
@@ -30,12 +28,7 @@ export const editAt = <T>(array: Array<T>, value: T, index: number): Array<T> =>
  * @param value Value with which objects will be deleted
  * @param propValue Property value after which the object is located
  */
-export const editByProp = <T extends { [key: string]: SimpleType }, K extends keyof T>(
-  array: Array<T>,
-  value: T,
-  key: K,
-  propValue?: SimpleType,
-): Array<T> => {
+export const editByProp = <T>(array: Array<T>, value: T, key: keyof T, propValue?: any): Array<T> => {
   const propV = propValue ?? value[key];
   return array.map((v) => (v[key] === propV ? value : v));
 };
@@ -53,11 +46,8 @@ export const removeAt = <T>(array: Array<T>, index: number): Array<T> => array.f
  * @param key Property name of value to compare
  * @param propValue Value with which objects will be deleted
  */
-export const removeByProp = <T extends { [key: string]: SimpleType }, K extends keyof T>(
-  array: Array<T>,
-  key: K,
-  propValue: SimpleType,
-): Array<T> => array.filter((v) => v[key] !== propValue);
+export const removeByProp = <T>(array: Array<T>, key: keyof T, propValue: any): Array<T> =>
+  array.filter((v) => v[key] !== propValue);
 
 /**
  * Returns array copy without values with specific properties values
@@ -65,11 +55,8 @@ export const removeByProp = <T extends { [key: string]: SimpleType }, K extends 
  * @param key Property name of value to compare
  * @param propValues Values with which objects will be deleted
  */
-export const removeByProps = <T extends { [key: string]: SimpleType }, K extends keyof T>(
-  array: Array<T>,
-  key: K,
-  propValues: Array<SimpleType>,
-): Array<T> => array.filter((v) => !propValues.includes(v[key]));
+export const removeByProps = <T>(array: Array<T>, key: keyof T, propValues: any): Array<T> =>
+  array.filter((v) => !propValues.includes(v[key]));
 
 /**
  * Returns new array with given lenght, populated by map callback with index as parameter
