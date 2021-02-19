@@ -13,3 +13,9 @@ export const isObject = (value: unknown, canBeNull = true): boolean =>
  */
 export const isArray = (value: unknown, canBeEmpty = true): boolean =>
   Array.isArray(value) && (canBeEmpty || value.length > 0);
+
+/**
+ * Check if value is function
+ * @param value value to check
+ */
+export const isFunc = (value: unknown): boolean => typeof value === 'function';

@@ -1,4 +1,2 @@
-import { merge, add, editAt, editByProp, removeAt, removeByProp, removeByProps, nMap } from './arrays-utils';
-import { isObject, isArray } from './type-utils';
-
-export { merge, add, editAt, editByProp, removeAt, removeByProp, removeByProps, nMap, isObject, isArray };
+export * from './arrays-utils';
+export * from './type-utils';
