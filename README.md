@@ -154,6 +154,15 @@ isArray([], false); //result: false
 isArray(["a", "b"], false); //result: true
 ```
 
+### isFunc
+
+```sh
+import { isFunc } from '@12luckydev/utils';
+
+isFunc(() => console.log("Hello")); //result: true
+isFunc({}); //result: false
+```
+
 ## License
 
 MIT © [12LuckyDev](https://github.com/12LuckyDev)
