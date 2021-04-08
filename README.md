@@ -84,6 +84,14 @@ import { removeAt } from '@12luckydev/utils';
 removeAt(['a', 'b', 'c'], 1); // result ["a", "c"]
 ```
 
+### popByIndex
+
+```sh
+import { popByIndex } from '@12luckydev/utils';
+
+popByIndex(['a', 'b', 'c'], 1); // result ["b", ["a", "c"]]
+```
+
 ### removeByProp
 
 ```sh
@@ -101,6 +109,40 @@ removeByProp(input, 'name', 'Karen');
         {id: 1, name: "Kevin"},
         {id: 3, name: "Bob"}
 ]
+**/
+```
+
+### popByProp
+
+```sh
+import { popByProp } from '@12luckydev/utils';
+
+const input = [
+  { id: 1, name: 'Kevin' },
+  { id: 2, name: 'Karen' },
+  { id: 3, name: 'Bob' },
+];
+
+popByProp(input, 'name', 'Karen');
+/**
+    result: [
+      { id: 2, name: 'Karen' },
+      [
+        { id: 1, name: "Kevin" },
+        { id: 3, name: "Bob" }
+      ]
+  ]
+**/
+
+popByProp(input, 'name', 'Karen', false);
+/**
+    result: [
+      [{ id: 2, name: 'Karen' }],
+      [
+        { id: 1, name: "Kevin" },
+        { id: 3, name: "Bob" }
+      ]
+  ]
 **/
 ```
 
