@@ -3,6 +3,7 @@ import {
   add,
   editAt,
   editByProp,
+  remove,
   removeAt,
   popByIndex,
   removeByProp,
@@ -66,6 +67,13 @@ test('TESTING editByProp func', () => {
       expect.objectContaining({ id: 3, name: 'Bob' }),
     ]),
   );
+});
+
+test('TESTING remove func', () => {
+  const inputArray = [1, 2, 3];
+  const resultArray = remove(inputArray, 2);
+  expect(inputArray).toEqual(expect.arrayContaining([1, 2, 3]));
+  expect(resultArray).toEqual(expect.arrayContaining([1, 3]));
 });
 
 test('TESTING removeAt func', () => {

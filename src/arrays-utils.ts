@@ -33,6 +33,13 @@ export const editByProp = <T, K extends keyof T>(array: T[], value: T, key: K, p
 };
 
 /**
+ * Returns array without given value
+ * @param array Original array
+ * @param value value to be deleted
+ */
+export const remove = <T>(array: T[], value: T): T[] => array.filter((v) => v !== value);
+
+/**
  * Returns array copy without value from given index
  * @param array Original array
  * @param index Index of value to remove
