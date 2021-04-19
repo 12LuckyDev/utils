@@ -21,6 +21,19 @@ export const add = <T>(array: T[], ...values: T[]): T[] => merge(array, values);
 export const editAt = <T>(array: T[], value: T, index: number): T[] => array.map((v, i) => (i === index ? value : v));
 
 /**
+ * Edit value at given index;
+ * @param array Original array
+ * @param key Property name of value to change
+ * @param propValue New property value
+ * @param index Index for value to change
+ */
+export const editPropAt = <T, K extends keyof T>(array: T[], key: K, propValue: T[K], index: number): T[] => {
+  const element = { ...array[index] };
+  element[key] = propValue;
+  return editAt(array, element, index);
+};
+
+/**
  * Returns array copy with changed value located by property value
  * @param array Original array
  * @param key Property name of value to compare

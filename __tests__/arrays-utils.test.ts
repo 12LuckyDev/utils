@@ -2,6 +2,7 @@ import {
   merge,
   add,
   editAt,
+  editPropAt,
   editByProp,
   remove,
   removeAt,
@@ -57,6 +58,31 @@ test('TESTING editByProp func', () => {
       expect.objectContaining({ id: 1, name: 'Kevin' }),
       expect.objectContaining({ id: 2, name: 'Luis' }),
       expect.objectContaining({ id: 3, name: 'Bob' }),
+    ]),
+  );
+
+  expect(inputArray).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({ id: 1, name: 'Kevin' }),
+      expect.objectContaining({ id: 2, name: 'Karen' }),
+      expect.objectContaining({ id: 3, name: 'Bob' }),
+    ]),
+  );
+});
+
+test('TESTING editPropAt func', () => {
+  const inputArray = [
+    { id: 1, name: 'Kevin' },
+    { id: 2, name: 'Karen' },
+    { id: 3, name: 'Bob' },
+  ];
+
+  const resultArray1 = editPropAt(inputArray, 'name', 'Angela', 2);
+  expect(resultArray1).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({ id: 1, name: 'Kevin' }),
+      expect.objectContaining({ id: 2, name: 'Karen' }),
+      expect.objectContaining({ id: 3, name: 'Angela' }),
     ]),
   );
 

@@ -55,6 +55,27 @@ editAt(input, { id: 4, name: 'Ann' }, 1);
 **/
 ```
 
+### editPropAt
+
+```sh
+import { editPropAt } from '@12luckydev/utils';
+
+const input = [
+  { id: 1, name: 'Kevin' },
+  { id: 2, name: 'Karen' },
+  { id: 3, name: 'Bob' },
+];
+
+editPropAt(input, 'name', 'Angela', 2)
+/**
+    result: [
+        { id: 1, name: 'Kevin' },
+        { id: 2, name: 'Karen' },
+        { id: 3, name: 'Angela' }
+]
+**/
+```
+
 ### editByProp
 
 ```sh
