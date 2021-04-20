@@ -1,13 +1,38 @@
-import { move, editAt, editByProp, editPropAt } from '../src/array-edit-utils';
+import { move, moveUp, moveDown, editAt, editByProp, editPropAt } from '../src/array-edit-utils';
 
 test('TESTING move func', () => {
   const inputArray = ['a', 'b', 'c', 'd', 'e'];
   const resultArray1 = move(inputArray, 3, 1);
   const resultArray2 = move(inputArray, 3, 5);
 
-  expect(inputArray).toEqual(expect.arrayContaining(['a', 'b', 'c', 'd', 'e']));
-  expect(resultArray1).toEqual(expect.arrayContaining(['a', 'd', 'b', 'c', 'e']));
-  expect(resultArray2).toEqual(expect.arrayContaining(['a', 'b', 'c', 'd', 'e']));
+  const expectedInputArray = ['a', 'b', 'c', 'd', 'e'];
+  const expectedArray1 = ['a', 'd', 'b', 'c', 'e'];
+
+  resultArray1.forEach((el, i) => expect(el).toEqual(expectedArray1[i]));
+
+  //inputArray order can't change
+  inputArray.forEach((el, i) => expect(el).toEqual(expectedInputArray[i]));
+
+  //resultArray2 should be in the same order as inputArray
+  resultArray2.forEach((el, i) => expect(el).toEqual(expectedInputArray[i]));
+});
+
+test('TESTING moveUp func', () => {
+  const inputArray = ['a', 'b', 'c', 'd', 'e'];
+  const expectedArray = ['a', 'b', 'd', 'c', 'e'];
+
+  const resultArray = moveUp(inputArray, 2);
+
+  resultArray.forEach((el, i) => expect(el).toEqual(expectedArray[i]));
+});
+
+test('TESTING moveDown func', () => {
+  const inputArray = ['a', 'b', 'c', 'd', 'e'];
+  const expectedArray = ['a', 'c', 'b', 'd', 'e'];
+
+  const resultArray = moveDown(inputArray, 2);
+
+  resultArray.forEach((el, i) => expect(el).toEqual(expectedArray[i]));
 });
 
 test('TESTING editAt func', () => {

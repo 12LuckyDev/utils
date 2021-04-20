@@ -43,13 +43,19 @@ const array = [0, 1, 2, 3, 4, 5, 6, 7];
 isInRange(array, 5); // result: true
 ```
 
-### move
+### move, moveUp, moveDown
 
 ```sh
-import { move } from '@12luckydev/utils';
+import { move, moveUp, moveDown } from '@12luckydev/utils';
 
 const array = ['a', 'b', 'c', 'd', 'e'];
+
 move(array, 3, 1); // result: ['a', 'd', 'b', 'c', 'e']
+
+moveUp(array, 2); // result: ['a', 'b', 'd', 'c', 'e']
+
+from(array, 2); // result: ['a', 'c', 'b', 'd', 'e']
+
 ```
 
 ### editAt

@@ -34,7 +34,7 @@ export const editByProp = <T, K extends keyof T>(array: T[], value: T, key: K, p
 };
 
 /**
- * Move value from given index to new
+ * Returns array copy with value moved from given index to new position
  * @param array Original array
  * @param from Index of value to change position
  * @param to Target index
@@ -47,3 +47,17 @@ export const move = <T>(array: T[], from: number, to: number): T[] => {
   }
   return copy;
 };
+
+/**
+ * Returns array copy with value moved from given index to index + 1 position
+ * @param array Original array
+ * @param index Index of value to change position
+ */
+export const moveUp = <T>(array: T[], index: number): T[] => move(array, index, index + 1);
+
+/**
+ * Returns array copy with value moved from given index to index - 1 position
+ * @param array Original array
+ * @param index Index of value to change position
+ */
+export const moveDown = <T>(array: T[], index: number): T[] => move(array, index, index - 1);
