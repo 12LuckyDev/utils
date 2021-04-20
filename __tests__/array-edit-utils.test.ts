@@ -1,4 +1,14 @@
-import { editAt, editByProp, editPropAt } from '../src/arrays-utils';
+import { move, editAt, editByProp, editPropAt } from '../src/arrays-utils';
+
+test('TESTING move func', () => {
+  const inputArray = ['a', 'b', 'c', 'd', 'e'];
+  const resultArray1 = move(inputArray, 3, 1);
+  const resultArray2 = move(inputArray, 3, 5);
+
+  expect(inputArray).toEqual(expect.arrayContaining(['a', 'b', 'c', 'd', 'e']));
+  expect(resultArray1).toEqual(expect.arrayContaining(['a', 'd', 'b', 'c', 'e']));
+  expect(resultArray2).toEqual(expect.arrayContaining(['a', 'b', 'c', 'd', 'e']));
+});
 
 test('TESTING editAt func', () => {
   const inputArray = [1, 2, 3];

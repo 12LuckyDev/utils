@@ -34,6 +34,24 @@ import { add } from '@12luckydev/utils';
 add([1, 2, 3], 4, 5); // result: [1,2,3,4,5]
 ```
 
+### isInRange
+
+```sh
+import { isInRange } from '@12luckydev/utils';
+
+const array = [0, 1, 2, 3, 4, 5, 6, 7];
+isInRange(array, 5); // result: true
+```
+
+### move
+
+```sh
+import { move } from '@12luckydev/utils';
+
+const array = ['a', 'b', 'c', 'd', 'e'];
+move(array, 3, 1); // result: ['a', 'd', 'b', 'c', 'e']
+```
+
 ### editAt
 
 ```sh

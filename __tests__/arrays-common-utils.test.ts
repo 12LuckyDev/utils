@@ -1,4 +1,4 @@
-import { merge, add, nMap } from '../src/arrays-utils';
+import { merge, add, nMap, isInRange } from '../src/arrays-utils';
 
 test('TESTING merge func', () => {
   const a = [1, 2, 3];
@@ -19,4 +19,11 @@ test('TESTING add func', () => {
 test('TESTING nMap func', () => {
   const resultArray = nMap(3, (i) => `${i} value`);
   expect(resultArray).toEqual(expect.arrayContaining(['0 value', '1 value', '2 value']));
+});
+
+test('TESTING isInRange func', () => {
+  const array = [0, 1, 2, 3, 4, 5, 6, 7];
+  expect(isInRange(array, 5)).toEqual(true);
+  expect(isInRange(array, -1)).toEqual(false);
+  expect(isInRange(array, 100)).toEqual(false);
 });

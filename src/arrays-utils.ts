@@ -46,6 +46,28 @@ export const editByProp = <T, K extends keyof T>(array: T[], value: T, key: K, p
 };
 
 /**
+ * Checks if the index is within the dimensions of the array
+ * @param array Range check array
+ * @param index Index to be checked
+ */
+export const isInRange = <T>(array: T[], index: number): boolean => index >= 0 && index < array.length;
+
+/**
+ * Move value from given index to new
+ * @param array Original array
+ * @param from Index of value to change position
+ * @param to Target index
+ */
+export const move = <T>(array: T[], from: number, to: number): T[] => {
+  const copy = [...array];
+  if (isInRange(copy, from) && isInRange(copy, to)) {
+    copy.splice(from, 1);
+    copy.splice(to, 0, array[from]);
+  }
+  return copy;
+};
+
+/**
  * Returns array without given value
  * @param array Original array
  * @param value value to be deleted
@@ -57,7 +79,7 @@ export const remove = <T>(array: T[], value: T): T[] => array.filter((v) => v !=
  * @param array Original array
  * @param index Index of value to remove
  */
-export const removeAt = <T>(array: T[], index: number): T[] => array.filter((v, i) => i !== index);
+export const removeAt = <T>(array: T[], index: number): T[] => merge(array.slice(0, index), array.slice(index + 1));
 
 /**
  * Returns an array to be deconstructed with the value of the given index and array copy without value from given index
