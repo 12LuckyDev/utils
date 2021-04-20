@@ -1,7 +1,6 @@
 # @12luckydev/utils
 
 [![npm (scoped)](https://img.shields.io/npm/v/@12luckydev/utils)](https://www.npmjs.com/package/@12luckydev/utils)
-[![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@12luckydev/utils)](https://github.com/12LuckyDev)
 
 Few helper funtions to work with arrays without mutation.
 Helpful with managing arrays in react.js state.
