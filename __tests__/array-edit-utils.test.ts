@@ -1,4 +1,4 @@
-import { move, editAt, editByProp, editPropAt } from '../src/arrays-utils';
+import { move, editAt, editByProp, editPropAt } from '../src/array-edit-utils';
 
 test('TESTING move func', () => {
   const inputArray = ['a', 'b', 'c', 'd', 'e'];

@@ -1,4 +1,4 @@
-import { merge, add, nMap, isInRange } from '../src/arrays-utils';
+import { merge, add, nMap, isInRange } from '../src/arrays-common-utils';
 
 test('TESTING merge func', () => {
   const a = [1, 2, 3];

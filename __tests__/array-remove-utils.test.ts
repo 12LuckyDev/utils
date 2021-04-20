@@ -1,4 +1,4 @@
-import { remove, removeAt, popByIndex, removeByProp, popByProp, removeByProps } from '../src/arrays-utils';
+import { remove, removeAt, popByIndex, removeByProp, popByProp, removeByProps } from '../src/array-remove-utils';
 
 test('TESTING remove func', () => {
   const inputArray = [1, 2, 3];
