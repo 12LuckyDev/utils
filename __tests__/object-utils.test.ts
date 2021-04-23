@@ -49,7 +49,7 @@ test('TESTING mapToObjectUsing func', () => {
 test('TESTING mapToObjectUsing func', () => {
   const input = { a: 1, b: 2, c: 3 };
 
-  let result: number[] = [];
+  const result: number[] = [];
 
   forEachProp(input, (v) => result.push(v as number));
   expect(result).toEqual(expect.arrayContaining([1, 2, 3]));
