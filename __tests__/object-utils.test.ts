@@ -1,4 +1,4 @@
-import { mapToObject, mapToObjectUsing } from '../src/object-utils';
+import { mapToObject, mapToObjectUsing, forEachProp } from '../src/object-utils';
 
 test('TESTING mapToObject func', () => {
   const inputArray = [
@@ -44,4 +44,13 @@ test('TESTING mapToObjectUsing func', () => {
       c: 'c',
     }),
   );
+});
+
+test('TESTING mapToObjectUsing func', () => {
+  const input = { a: 1, b: 2, c: 3 };
+
+  let result: number[] = [];
+
+  forEachProp(input, (v) => result.push(v as number));
+  expect(result).toEqual(expect.arrayContaining([1, 2, 3]));
 });

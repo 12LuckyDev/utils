@@ -249,6 +249,60 @@ isFunc(() => console.log("Hello")); //result: true
 isFunc({}); //result: false
 ```
 
+### mapToObject
+
+```sh
+import { mapToObject } from '@12luckydev/utils';
+
+const inputArray = [
+    { id: 1, value: 'a' },
+    { id: 2, value: 'b' },
+    { id: 3, value: 'c' },
+  ];
+
+mapToObject(inputArray, 'value')
+/**
+  result : {
+    a: { id: 1 },
+    b: { id: 2 },
+    c: { id: 3 },
+  }
+ */
+```
+
+### mapToObjectUsing
+
+```sh
+import { mapToObjectUsing } from '@12luckydev/utils';
+
+const inputArray = [
+    { id: 1, value: 'a' },
+    { id: 2, value: 'b' },
+    { id: 3, value: 'c' },
+  ];
+
+mapToObjectUsing(inputArray, 'value', (v) => {
+    return v.value;
+});
+/**
+  result : {
+    a: 'a',
+    b: 'b',
+    c: 'c',
+  }
+ */
+```
+
+### forEachProp
+
+```sh
+import { forEachProp } from '@12luckydev/utils';
+const input = { a: 1, b: 2, c: 3 };
+
+forEachProp(input, (v) => console.log(v));
+// result (console): 1, 2, 3
+```
+
 ## License
 
 MIT © [12LuckyDev](https://github.com/12LuckyDev)
