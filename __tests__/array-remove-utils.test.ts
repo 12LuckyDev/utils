@@ -21,8 +21,8 @@ test('TESTING toggle func', () => {
   expect(inputArray).toEqual(expect.arrayContaining([1, 2, 3]));
   expect(removeResultArray).toEqual(expect.arrayContaining([1, 3]));
 
-  const addResultArray = toggle(inputArray, 2);
-  expect(inputArray).toEqual(expect.arrayContaining([1, 2, 3]));
+  const addResultArray = toggle(removeResultArray, 2);
+  expect(removeResultArray).toEqual(expect.arrayContaining([1, 3]));
   expect(addResultArray).toEqual(expect.arrayContaining([1, 2, 3]));
 });
 
