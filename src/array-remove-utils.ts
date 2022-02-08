@@ -1,4 +1,4 @@
-import { merge } from '.';
+import { merge, add } from '.';
 
 /**
  * Returns array without given value
@@ -6,6 +6,15 @@ import { merge } from '.';
  * @param value value to be deleted
  */
 export const remove = <T>(array: T[], value: T): T[] => array.filter((v) => v !== value);
+
+/**
+ * Toggle Value - Removes value if contained in an array, adds value otherwise
+ * @param array Original array
+ * @param value value to be deleted or added
+ * @returns
+ */
+export const toggle = <T>(array: T[], value: T): T[] =>
+  array.includes(value) ? remove(array, value) : add(array, value);
 
 /**
  * Returns array copy without value from given index

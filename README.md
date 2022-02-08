@@ -120,6 +120,26 @@ editByProp(input, { id: 4, name: 'Ann' }, 'id', 2)
 **/
 ```
 
+### remove
+
+```sh
+import { remove } from '@12luckydev/utils';
+
+remove(['a', 'b', 'c'], 'b'); // result ["a", "c"]
+```
+
+### toggle
+
+```sh
+import { toggle } from '@12luckydev/utils';
+
+toggle(['a', 'b', 'c'], 'b'); // result ["a", "c"]
+
+toggle(['a', 'c'], 'b'); // result ['a', 'b', 'c']
+
+
+```
+
 ### removeAt
 
 ```sh
