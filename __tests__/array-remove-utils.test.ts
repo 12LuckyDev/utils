@@ -1,12 +1,4 @@
-import {
-  remove,
-  toggle,
-  removeAt,
-  popByIndex,
-  removeByProp,
-  popByProp,
-  removeByProps,
-} from '../src/array-remove-utils';
+import { remove, toggle, removeAt, popAt, removeByProp, popByProp, removeByProps } from '../src/array-remove-utils';
 
 test('TESTING remove func', () => {
   const inputArray = [1, 2, 3];
@@ -33,9 +25,9 @@ test('TESTING removeAt func', () => {
   expect(resultArray).toEqual(expect.arrayContaining([1, 3]));
 });
 
-test('TESTING popByIndex func', () => {
+test('TESTING popAt func', () => {
   const inputArray = [1, 2, 3];
-  const [popped, resultArray] = popByIndex(inputArray, 1);
+  const [popped, resultArray] = popAt(inputArray, 1);
   expect(inputArray).toEqual(expect.arrayContaining([1, 2, 3]));
   expect(popped).toEqual(2);
   expect(resultArray).toEqual(expect.arrayContaining([1, 3]));

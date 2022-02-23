@@ -148,12 +148,12 @@ import { removeAt } from '@12luckydev/utils';
 removeAt(['a', 'b', 'c'], 1); // result ["a", "c"]
 ```
 
-### popByIndex
+### popAt
 
 ```sh
-import { popByIndex } from '@12luckydev/utils';
+import { popAt } from '@12luckydev/utils';
 
-popByIndex(['a', 'b', 'c'], 1); // result ["b", ["a", "c"]]
+popAt(['a', 'b', 'c'], 1); // result ["b", ["a", "c"]]
 ```
 
 ### removeByProp

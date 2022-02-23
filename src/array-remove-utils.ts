@@ -29,7 +29,7 @@ export const removeAt = <T>(array: T[], index: number): T[] => merge(array.slice
  * @param index Index of value to remove
  * @returns [value, new array without value from given index]
  */
-export const popByIndex = <T>(array: T[], index: number): [T, T[]] => [array[index], removeAt(array, index)];
+export const popAt = <T>(array: T[], index: number): [T, T[]] => [array[index], removeAt(array, index)];
 
 /**
  * Returns array copy without values with specific properties value
