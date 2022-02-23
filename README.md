@@ -140,6 +140,36 @@ toggle(['a', 'c'], 'b'); // result ['a', 'b', 'c']
 
 ```
 
+### removeByProp
+
+```sh
+import { toggleByProp } from '@12luckydev/utils';
+
+const input = [
+  { id: 1, name: 'Kevin' },
+  { id: 2, name: 'Karen' },
+  { id: 3, name: 'Bob' },
+];
+
+toggleByProp(input, 'name', { id: 2, name: 'Karen' });
+/**
+    result: [
+        {id: 1, name: "Kevin"},
+        {id: 3, name: "Bob"}
+]
+**/
+
+toggleByProp(input, 'name', { id: 4, name: 'Iwan' });
+/**
+    result: [
+       { id: 1, name: 'Kevin' },
+       { id: 2, name: 'Karen' },
+       { id: 3, name: 'Bob' },
+       { id: 4, name: 'Iwan' }
+]
+**/
+```
+
 ### removeAt
 
 ```sh

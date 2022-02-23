@@ -17,6 +17,17 @@ export const toggle = <T>(array: T[], value: T): T[] =>
   array.includes(value) ? remove(array, value) : add(array, value);
 
 /**
+ * Returns array copy without values with specific properties value if it is contained, adds value otherwise
+ * @param array Original array
+ * @param key Property name of value to compare
+ * @param propValue Value with which objects will be deleted
+ */
+export const toggleByProp = <T, K extends keyof T>(array: T[], key: K, value: T): T[] => {
+  const index = array.findIndex((v) => v[key] === value[key]);
+  return index > -1 ? removeAt(array, index) : add(array, value);
+};
+
+/**
  * Returns array copy without value from given index
  * @param array Original array
  * @param index Index of value to remove

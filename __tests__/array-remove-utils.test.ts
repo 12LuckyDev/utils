@@ -1,4 +1,13 @@
-import { remove, toggle, removeAt, popAt, removeByProp, popByProp, removeByProps } from '../src/array-remove-utils';
+import {
+  remove,
+  toggle,
+  removeAt,
+  popAt,
+  removeByProp,
+  popByProp,
+  removeByProps,
+  toggleByProp,
+} from '../src/array-remove-utils';
 
 test('TESTING remove func', () => {
   const inputArray = [1, 2, 3];
@@ -16,6 +25,64 @@ test('TESTING toggle func', () => {
   const addResultArray = toggle(removeResultArray, 2);
   expect(removeResultArray).toEqual(expect.arrayContaining([1, 3]));
   expect(addResultArray).toEqual(expect.arrayContaining([1, 2, 3]));
+});
+
+test('TESTING toggleByProp func', () => {
+  const inputArray = [
+    { id: 1, value: 'value 1' },
+    { id: 2, value: 'value 2' },
+    { id: 3, value: 'value 3' },
+  ];
+
+  const removeResultArray = toggleByProp(inputArray, 'id', { id: 2, value: 'value 2' });
+
+  expect(removeResultArray).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        id: 1,
+        value: 'value 1',
+      }),
+      expect.objectContaining({
+        id: 3,
+        value: 'value 3',
+      }),
+    ]),
+  );
+
+  const addResultArray = toggleByProp(removeResultArray, 'id', { id: 2, value: 'value 2' });
+  expect(addResultArray).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        id: 1,
+        value: 'value 1',
+      }),
+      expect.objectContaining({
+        id: 3,
+        value: 'value 3',
+      }),
+      expect.objectContaining({
+        id: 2,
+        value: 'value 2',
+      }),
+    ]),
+  );
+
+  expect(inputArray).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        id: 1,
+        value: 'value 1',
+      }),
+      expect.objectContaining({
+        id: 2,
+        value: 'value 2',
+      }),
+      expect.objectContaining({
+        id: 3,
+        value: 'value 3',
+      }),
+    ]),
+  );
 });
 
 test('TESTING removeAt func', () => {
