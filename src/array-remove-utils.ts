@@ -14,7 +14,7 @@ export const remove = <T>(array: T[], value: T): T[] => array.filter((v) => v !=
  * @returns
  */
 export const toggle = <T>(array: T[], value: T, rule?: (el: T) => boolean): T[] => {
-  if (!!rule) {
+  if (rule) {
     const index = array.findIndex(rule);
     return index >= 0 ? removeAt(array, index) : add(array, value);
   }
