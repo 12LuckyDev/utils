@@ -13,8 +13,14 @@ export const remove = <T>(array: T[], value: T): T[] => array.filter((v) => v !=
  * @param value value to be deleted or added
  * @returns
  */
-export const toggle = <T>(array: T[], value: T): T[] =>
-  array.includes(value) ? remove(array, value) : add(array, value);
+export const toggle = <T>(array: T[], value: T, rule?: (el: T) => boolean): T[] => {
+  if (!!rule) {
+    const index = array.findIndex(rule);
+    return index >= 0 ? removeAt(array, index) : add(array, value);
+  }
+
+  return array.includes(value) ? remove(array, value) : add(array, value);
+};
 
 /**
  * Returns array copy without values with specific properties value if it is contained, adds value otherwise
