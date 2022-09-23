@@ -42,6 +42,32 @@ const array = [0, 1, 2, 3, 4, 5, 6, 7];
 isInRange(array, 5); // result: true
 ```
 
+### compare
+
+```sh
+import { compare } from '@12luckydev/utils';
+
+const array = [0, 1, 2, 3, 4, 5];
+compare(array, [0, 1, 2, 3, 4, 5]); // result: true
+
+const objArray = [
+    { id: 1, value: 'value 1' },
+    { id: 2, value: 'value 2' },
+    { id: 3, value: 'value 3' },
+  ];
+
+compare(
+      objArray,
+      [
+        { id: 2, value: 'value 2' },
+        { id: 3, value: 'value 3' },
+        { id: 4, value: 'value 4' },
+      ],
+      (elA, elB) => elA.id === elB.id,
+    ); // result: true
+
+```
+
 ### move, moveUp, moveDown
 
 ```sh
