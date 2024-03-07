@@ -79,7 +79,25 @@ move(array, 3, 1); // result: ['a', 'd', 'b', 'c', 'e']
 
 moveUp(array, 2); // result: ['a', 'b', 'd', 'c', 'e']
 
-from(array, 2); // result: ['a', 'c', 'b', 'd', 'e']
+moveDown(array, 2); // result: ['a', 'c', 'b', 'd', 'e']
+
+```
+
+### shift
+
+```sh
+import { shift } from '@12luckydev/utils';
+
+const array = ['a', 'b', 'c', 'd', 'e'];
+
+shift(array, 1); // result: ['e', 'a', 'b', 'c', 'd']
+
+shift(array, -1); // result: ['b', 'c', 'd', 'e', 'a']
+
+shift(array, 1, false); // result: ['a', 'b', 'c', 'd']
+
+shift(array, -1, false); // result: ['b', 'c', 'd', 'e']
+
 
 ```
 
