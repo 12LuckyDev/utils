@@ -68,7 +68,7 @@ export const moveDown = <T>(array: T[], index: number): T[] => move(array, index
  * @param offset Shift value by how much the positions of elements change
  * @param circual Flag that decides whether elements that will be outside the size of the array should appear on the other side
  */
-export const shift = <T>(array: T[], offset: number, circual: boolean = true): T[] => {
+export const shift = <T>(array: T[], offset: number, circual = true): T[] => {
   if (offset === 0) {
     return array.slice();
   }
