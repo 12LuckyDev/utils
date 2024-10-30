@@ -1,13 +1,15 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base",
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "declaration": true,
-    "outDir": "./lib",
+    "lib": ["esnext", "DOM"],
+    "target": "esnext",
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "preserveWatchOutput": true,
+    "skipLibCheck": true,
     "strict": true,
-    "downlevelIteration": true,
-    "lib": ["es2015", "dom"],
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["src"],
   "exclude": ["node_modules", "__tests__"]
 }
