@@ -321,6 +321,14 @@ import { nMap } from '@12luckydev/utils';
 nMap(3, (i) => `${i} value`); //result: ["0 value", "1 value", "2 value"]
 ```
 
+### to2D
+
+```sh
+import { to2D } from '@12luckydev/utils';
+
+to2D([1, 2, 3, 4]); //result: [[1, 2], [3, 4]]
+```
+
 ### isObject
 
 ```sh
