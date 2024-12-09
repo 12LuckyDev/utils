@@ -98,6 +98,18 @@ shift(array, 1, false); // result: ['a', 'b', 'c', 'd']
 
 shift(array, -1, false); // result: ['b', 'c', 'd', 'e']
 
+```
+
+### shift
+
+```sh
+import { shuffle } from '@12luckydev/utils';
+
+const array = ['a', 'b', 'c', 'd', 'e'];
+
+shuffle(array); // result: ['e', 'b', 'a', 'c', 'd']
+
+shuffle(array); // result: ['a', 'c', 'e', 'd', 'b']
 
 ```
 
