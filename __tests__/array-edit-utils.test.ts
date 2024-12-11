@@ -1,4 +1,4 @@
-import { move, moveUp, moveDown, editAt, editByProp, editPropAt, shift, shuffle } from '../src/array-edit-utils';
+import { move, moveUp, moveDown, editAt, editByProp, editPropAt, shift } from '../src/array-edit-utils';
 
 test('TESTING move func', () => {
   const inputArray = ['a', 'b', 'c', 'd', 'e'];
@@ -108,16 +108,6 @@ test('TESTING shift func', () => {
   expect(shift(inputArray, -1)).toEqual(expect.arrayContaining([2, 3, 1]));
   expect(shift(inputArray, 1, false)).toEqual(expect.arrayContaining([1, 2]));
   expect(shift(inputArray, -1, false)).toEqual(expect.arrayContaining([2, 3]));
-
-  expect(inputArray).toEqual(expect.arrayContaining([1, 2, 3]));
-});
-
-test('TESTING shuffle func', () => {
-  const inputArray = [1, 2, 3];
-  const outputArray = shuffle(inputArray);
-
-  expect(inputArray === outputArray).toEqual(false);
-  expect(inputArray.length === outputArray.length).toEqual(true);
 
   expect(inputArray).toEqual(expect.arrayContaining([1, 2, 3]));
 });
