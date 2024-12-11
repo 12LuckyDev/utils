@@ -100,7 +100,7 @@ shift(array, -1, false); // result: ['b', 'c', 'd', 'e']
 
 ```
 
-### shift
+### shuffle
 
 ```sh
 import { shuffle } from '@12luckydev/utils';
@@ -110,6 +110,29 @@ const array = ['a', 'b', 'c', 'd', 'e'];
 shuffle(array); // result: ['e', 'b', 'a', 'c', 'd']
 
 shuffle(array); // result: ['a', 'c', 'e', 'd', 'b']
+
+```
+
+### deshuffle
+
+```sh
+import { deshuffle } from '@12luckydev/utils';
+
+const array = [3, 1, 2];
+
+deshuffle(array, [2, 0, 1]); // result: [1, 2, 3]
+
+```
+
+### reshuffle
+
+```sh
+import { reshuffle } from '@12luckydev/utils';
+
+const array = [1, 2, 3];
+
+reshuffle(array); // result: [[3, 1, 2] , [2, 0, 1]]
+reshuffle([3, 1, 2], [2, 0, 1]); // result: [[1, 2, 3] , [2, 0, 1]]
 
 ```
 
