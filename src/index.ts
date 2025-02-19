@@ -5,3 +5,4 @@ export * from './type-utils';
 export * from './object-utils';
 export * from './array-dimension-utils';
 export * from './array-random-utils';
+export * from './array-separate-utils';

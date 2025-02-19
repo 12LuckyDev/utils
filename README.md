@@ -352,6 +352,29 @@ import { to2D } from '@12luckydev/utils';
 to2D([1, 2, 3, 4]); //result: [[1, 2], [3, 4]]
 ```
 
+### separate
+
+```sh
+import { separate } from '@12luckydev/utils';
+
+separate([1,2,3,4,5,6], (el) => el < 4); //result: [[1, 2, 3], [4, 5, 6]]
+```
+
+### multiSeparate
+
+```sh
+import { multiSeparate } from '@12luckydev/utils';
+
+multiSeparate([1,2,3,4,5,6,7,8,9], (el) => el % 3); //result: [[1, 2, 3], [4, 5, 6]]
+
+/**
+ * Map:
+ * 0 => [3, 6, 9]
+ * 1 => [1, 4, 7]
+ * 2 => [2, 5, 8]
+ */
+```
+
 ### isObject
 
 ```sh
