@@ -3,7 +3,6 @@
 [![npm (scoped)](https://img.shields.io/npm/v/@12luckydev/utils)](https://www.npmjs.com/package/@12luckydev/utils)
 
 Few helper funtions to work with arrays without mutation.
-Helpful with managing arrays in react.js state.
 
 ## Install
 
