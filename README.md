@@ -375,40 +375,6 @@ multiSeparate([1,2,3,4,5,6,7,8,9], (el) => el % 3); //result: [[1, 2, 3], [4, 5,
  */
 ```
 
-### isObject
-
-```sh
-import { isObject } from '@12luckydev/utils';
-
-isObject(null); //result: true
-isObject({}); //result: true
-isObject(null, false); //result: false
-isObject({}, false); //result: true
-isObject([]); //result: false - arrays are excluded
-```
-
-### isArray
-
-```sh
-import { isArray } from '@12luckydev/utils';
-
-isArray(null); //result: false
-isArray({}); //result: false
-isArray([]); //result: true
-isArray(["a", "b"]); //result: true
-isArray([], false); //result: false
-isArray(["a", "b"], false); //result: true
-```
-
-### isFunc
-
-```sh
-import { isFunc } from '@12luckydev/utils';
-
-isFunc(() => console.log("Hello")); //result: true
-isFunc({}); //result: false
-```
-
 ### mapToObject
 
 ```sh
