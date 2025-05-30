@@ -6,7 +6,7 @@ Few helper funtions to work with arrays without mutation.
 
 ## Install
 
-```sh
+```javascript
 # using npm
 npm i @12luckydev/utils
 
@@ -18,7 +18,7 @@ yarn add @12luckydev/utils
 
 ### merge
 
-```sh
+```javascript
 import { merge } from '@12luckydev/utils';
 
 merge([1, 2, 3], [4, 5]); // result: [1,2,3,4,5]
@@ -26,7 +26,7 @@ merge([1, 2, 3], [4, 5]); // result: [1,2,3,4,5]
 
 ### add
 
-```sh
+```javascript
 import { add } from '@12luckydev/utils';
 
 add([1, 2, 3], 4, 5); // result: [1,2,3,4,5]
@@ -34,7 +34,7 @@ add([1, 2, 3], 4, 5); // result: [1,2,3,4,5]
 
 ### isInRange
 
-```sh
+```javascript
 import { isInRange } from '@12luckydev/utils';
 
 const array = [0, 1, 2, 3, 4, 5, 6, 7];
@@ -43,33 +43,32 @@ isInRange(array, 5); // result: true
 
 ### compare
 
-```sh
+```javascript
 import { compare } from '@12luckydev/utils';
 
 const array = [0, 1, 2, 3, 4, 5];
 compare(array, [0, 1, 2, 3, 4, 5]); // result: true
 
 const objArray = [
-    { id: 1, value: 'value 1' },
-    { id: 2, value: 'value 2' },
-    { id: 3, value: 'value 3' },
-  ];
+  { id: 1, value: 'value 1' },
+  { id: 2, value: 'value 2' },
+  { id: 3, value: 'value 3' },
+];
 
 compare(
-      objArray,
-      [
-        { id: 2, value: 'value 2' },
-        { id: 3, value: 'value 3' },
-        { id: 4, value: 'value 4' },
-      ],
-      (elA, elB) => elA.id === elB.id,
-    ); // result: true
-
+  objArray,
+  [
+    { id: 2, value: 'value 2' },
+    { id: 3, value: 'value 3' },
+    { id: 4, value: 'value 4' },
+  ],
+  (elA, elB) => elA.id === elB.id,
+); // result: true
 ```
 
 ### move, moveUp, moveDown
 
-```sh
+```javascript
 import { move, moveUp, moveDown } from '@12luckydev/utils';
 
 const array = ['a', 'b', 'c', 'd', 'e'];
@@ -79,12 +78,11 @@ move(array, 3, 1); // result: ['a', 'd', 'b', 'c', 'e']
 moveUp(array, 2); // result: ['a', 'b', 'd', 'c', 'e']
 
 moveDown(array, 2); // result: ['a', 'c', 'b', 'd', 'e']
-
 ```
 
 ### shift
 
-```sh
+```javascript
 import { shift } from '@12luckydev/utils';
 
 const array = ['a', 'b', 'c', 'd', 'e'];
@@ -96,12 +94,11 @@ shift(array, -1); // result: ['b', 'c', 'd', 'e', 'a']
 shift(array, 1, false); // result: ['a', 'b', 'c', 'd']
 
 shift(array, -1, false); // result: ['b', 'c', 'd', 'e']
-
 ```
 
 ### shuffle
 
-```sh
+```javascript
 import { shuffle } from '@12luckydev/utils';
 
 const array = ['a', 'b', 'c', 'd', 'e'];
@@ -109,35 +106,32 @@ const array = ['a', 'b', 'c', 'd', 'e'];
 shuffle(array); // result: ['e', 'b', 'a', 'c', 'd']
 
 shuffle(array); // result: ['a', 'c', 'e', 'd', 'b']
-
 ```
 
 ### deshuffle
 
-```sh
+```javascript
 import { deshuffle } from '@12luckydev/utils';
 
 const array = [3, 1, 2];
 
 deshuffle(array, [2, 0, 1]); // result: [1, 2, 3]
-
 ```
 
 ### reshuffle
 
-```sh
+```javascript
 import { reshuffle } from '@12luckydev/utils';
 
 const array = [1, 2, 3];
 
 reshuffle(array); // result: [[3, 1, 2] , [2, 0, 1]]
 reshuffle([3, 1, 2], [2, 0, 1]); // result: [[1, 2, 3] , [2, 0, 1]]
-
 ```
 
 ### editAt
 
-```sh
+```javascript
 import { editAt } from '@12luckydev/utils';
 
 const input = [
@@ -158,7 +152,7 @@ editAt(input, { id: 4, name: 'Ann' }, 1);
 
 ### editPropAt
 
-```sh
+```javascript
 import { editPropAt } from '@12luckydev/utils';
 
 const input = [
@@ -167,7 +161,7 @@ const input = [
   { id: 3, name: 'Bob' },
 ];
 
-editPropAt(input, 'name', 'Angela', 2)
+editPropAt(input, 'name', 'Angela', 2);
 /**
     result: [
         { id: 1, name: 'Kevin' },
@@ -179,7 +173,7 @@ editPropAt(input, 'name', 'Angela', 2)
 
 ### editByProp
 
-```sh
+```javascript
 import { editByProp } from '@12luckydev/utils';
 
 const input = [
@@ -188,7 +182,7 @@ const input = [
   { id: 3, name: 'Bob' },
 ];
 
-editByProp(input, { id: 4, name: 'Ann' }, 'id', 2)
+editByProp(input, { id: 4, name: 'Ann' }, 'id', 2);
 /**
     result: [
         {id: 1, name: "Kevin"},
@@ -200,7 +194,7 @@ editByProp(input, { id: 4, name: 'Ann' }, 'id', 2)
 
 ### remove
 
-```sh
+```javascript
 import { remove } from '@12luckydev/utils';
 
 remove(['a', 'b', 'c'], 'b'); // result ["a", "c"]
@@ -208,19 +202,17 @@ remove(['a', 'b', 'c'], 'b'); // result ["a", "c"]
 
 ### toggle
 
-```sh
+```javascript
 import { toggle } from '@12luckydev/utils';
 
 toggle(['a', 'b', 'c'], 'b'); // result ["a", "c"]
 
 toggle(['a', 'c'], 'b'); // result ['a', 'b', 'c']
-
-
 ```
 
 ### removeByProp
 
-```sh
+```javascript
 import { toggleByProp } from '@12luckydev/utils';
 
 const input = [
@@ -250,7 +242,7 @@ toggleByProp(input, 'name', { id: 4, name: 'Iwan' });
 
 ### removeAt
 
-```sh
+```javascript
 import { removeAt } from '@12luckydev/utils';
 
 removeAt(['a', 'b', 'c'], 1); // result ["a", "c"]
@@ -258,7 +250,7 @@ removeAt(['a', 'b', 'c'], 1); // result ["a", "c"]
 
 ### popAt
 
-```sh
+```javascript
 import { popAt } from '@12luckydev/utils';
 
 popAt(['a', 'b', 'c'], 1); // result ["b", ["a", "c"]]
@@ -266,7 +258,7 @@ popAt(['a', 'b', 'c'], 1); // result ["b", ["a", "c"]]
 
 ### removeByProp
 
-```sh
+```javascript
 import { removeByProp } from '@12luckydev/utils';
 
 const input = [
@@ -286,7 +278,7 @@ removeByProp(input, 'name', 'Karen');
 
 ### popByProp
 
-```sh
+```javascript
 import { popByProp } from '@12luckydev/utils';
 
 const input = [
@@ -320,7 +312,7 @@ popByProp(input, 'name', 'Karen', false);
 
 ### removeByProps
 
-```sh
+```javascript
 import { removeByProps } from '@12luckydev/utils';
 
 const input = [
@@ -337,7 +329,7 @@ removeByProp(input, 'name', ['Karen', 'Bob']);
 
 ### nMap
 
-```sh
+```javascript
 import { nMap } from '@12luckydev/utils';
 
 nMap(3, (i) => `${i} value`); //result: ["0 value", "1 value", "2 value"]
@@ -345,7 +337,7 @@ nMap(3, (i) => `${i} value`); //result: ["0 value", "1 value", "2 value"]
 
 ### to2D
 
-```sh
+```javascript
 import { to2D } from '@12luckydev/utils';
 
 to2D([1, 2, 3, 4]); //result: [[1, 2], [3, 4]]
@@ -353,18 +345,18 @@ to2D([1, 2, 3, 4]); //result: [[1, 2], [3, 4]]
 
 ### separate
 
-```sh
+```javascript
 import { separate } from '@12luckydev/utils';
 
-separate([1,2,3,4,5,6], (el) => el < 4); //result: [[1, 2, 3], [4, 5, 6]]
+separate([1, 2, 3, 4, 5, 6], (el) => el < 4); //result: [[1, 2, 3], [4, 5, 6]]
 ```
 
 ### multiSeparate
 
-```sh
+```javascript
 import { multiSeparate } from '@12luckydev/utils';
 
-multiSeparate([1,2,3,4,5,6,7,8,9], (el) => el % 3); //result: [[1, 2, 3], [4, 5, 6]]
+multiSeparate([1, 2, 3, 4, 5, 6, 7, 8, 9], (el) => el % 3); //result: [[1, 2, 3], [4, 5, 6]]
 
 /**
  * Map:
@@ -376,16 +368,16 @@ multiSeparate([1,2,3,4,5,6,7,8,9], (el) => el % 3); //result: [[1, 2, 3], [4, 5,
 
 ### mapToObject
 
-```sh
+```javascript
 import { mapToObject } from '@12luckydev/utils';
 
 const inputArray = [
-    { id: 1, value: 'a' },
-    { id: 2, value: 'b' },
-    { id: 3, value: 'c' },
-  ];
+  { id: 1, value: 'a' },
+  { id: 2, value: 'b' },
+  { id: 3, value: 'c' },
+];
 
-mapToObject(inputArray, 'value')
+mapToObject(inputArray, 'value');
 /**
   result : {
     a: { id: 1 },
@@ -397,17 +389,17 @@ mapToObject(inputArray, 'value')
 
 ### mapToObjectUsing
 
-```sh
+```javascript
 import { mapToObjectUsing } from '@12luckydev/utils';
 
 const inputArray = [
-    { id: 1, value: 'a' },
-    { id: 2, value: 'b' },
-    { id: 3, value: 'c' },
-  ];
+  { id: 1, value: 'a' },
+  { id: 2, value: 'b' },
+  { id: 3, value: 'c' },
+];
 
 mapToObjectUsing(inputArray, 'value', (v) => {
-    return v.value;
+  return v.value;
 });
 /**
   result : {
@@ -420,13 +412,24 @@ mapToObjectUsing(inputArray, 'value', (v) => {
 
 ### forEachProp
 
-```sh
-import { forEachProp } from '@12luckydev/utils';
-const input = { a: 1, b: 2, c: 3 };
+```javascript
+import { mappify } from '@12luckydev/utils';
+const inputArray = [
+  { id: 1, value: 'a' },
+  { id: 2, value: 'b' },
+  { id: 3, value: 'c' },
+];
 
-forEachProp(input, (v) => console.log(v));
-// result (console): 1, 2, 3
+mappify(inputArray, 'id');
+/**
+ * Map:
+ * 1 => { id: 1, value: 'a' }
+ * 2 => { id: 2, value: 'b' }
+ * 3 => { id: 3, value: 'c' }
+ */
 ```
+
+mappify
 
 ## License
 
