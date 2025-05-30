@@ -48,3 +48,13 @@ export const mapToObjectUsing = <T, K extends keyof T>(
 export const forEachProp = (obj: Record<string, unknown>, handler: (prop?: unknown, key?: string) => void): void => {
   Object.keys(obj).forEach((k) => handler(obj[k], k));
 };
+
+/**
+ * Add all elements to new Map with value stored in 'key' field as key in map
+ * @param array Input array
+ * @param key Key of value inside object that will be key of output map
+ * @returns Map containing array elemets
+ */
+export const mappify = <T, K extends keyof T>(array: T[], key: K): Map<T[K], T> => {
+  return new Map<T[K], T>(array.map((el) => [el[key], el]));
+};

@@ -1,4 +1,4 @@
-import { mapToObject, mapToObjectUsing, forEachProp } from '../src/object-utils';
+import { mapToObject, mapToObjectUsing, forEachProp, mappify } from '../src/object-utils';
 
 test('TESTING mapToObject func', () => {
   const inputArray = [
@@ -53,4 +53,17 @@ test('TESTING forEachProp func', () => {
 
   forEachProp(input, (v) => result.push(v as number));
   expect(result).toEqual(expect.arrayContaining([1, 2, 3]));
+});
+
+test('TESTING mappify func', () => {
+  const inputArray = [
+    { id: 1, value: 'a' },
+    { id: 2, value: 'b' },
+    { id: 3, value: 'c' },
+  ];
+  const result = mappify(inputArray, 'id');
+
+  expect(result.get(1)).toEqual(expect.objectContaining({ id: 1, value: 'a' }));
+  expect(result.get(2)).toEqual(expect.objectContaining({ id: 2, value: 'b' }));
+  expect(result.get(3)).toEqual(expect.objectContaining({ id: 3, value: 'c' }));
 });
