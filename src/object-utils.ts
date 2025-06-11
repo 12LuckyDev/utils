@@ -45,8 +45,10 @@ export const mapToObjectUsing = <T, K extends keyof T>(
  * @param obj Input object
  * @param handler Handler with action
  */
-export const forEachProp = (obj: Record<string, unknown>, handler: (prop?: unknown, key?: string) => void): void => {
-  Object.keys(obj).forEach((k) => handler(obj[k], k));
+export const forEachProp = (obj: Record<string, unknown>, handler: (prop: unknown, key: string) => void): void => {
+  for (let k in obj) {
+    handler(obj[k], k);
+  }
 };
 
 /**
