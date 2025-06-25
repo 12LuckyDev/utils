@@ -81,3 +81,14 @@ export const shift = <T>(array: T[], offset: number, circual = true): T[] => {
 
   return offset > 0 ? array.slice(0, pivot) : array.slice(pivot);
 };
+
+/**
+ * Returns array copy with value/values inserted at given index. Values in array after that index will be pushed
+ * @param array Original array
+ * @param index Index to insert value/values at
+ * @param value Value/values to insert
+ */
+export const insertAt = <T>(array: T[], index: number, value: T | T[]): T[] => {
+  const toInsert: T[] = Array.isArray(value) ? value : [value];
+  return [...array.slice(0, index), ...toInsert, ...array.slice(index)];
+};

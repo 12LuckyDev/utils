@@ -96,6 +96,17 @@ shift(array, 1, false); // result: ['a', 'b', 'c', 'd']
 shift(array, -1, false); // result: ['b', 'c', 'd', 'e']
 ```
 
+### insertAt
+
+```javascript
+import { shift } from '@12luckydev/utils';
+
+const array = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+insertAt(array, 4, 10); // result: [0, 1, 2, 3, 10, 4, 5, 6, 7, 8]
+
+insertAt(array, 4, [10, 11]); // result: [0, 1, 2, 3, 10, 11, 4, 5, 6, 7, 8]
+```
+
 ### shuffle
 
 ```javascript
