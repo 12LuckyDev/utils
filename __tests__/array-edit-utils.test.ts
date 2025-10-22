@@ -1,4 +1,14 @@
-import { move, moveUp, moveDown, editAt, editByProp, editPropAt, shift, insertAt } from '../src/array-edit-utils';
+import {
+  move,
+  moveUp,
+  moveDown,
+  editAt,
+  editByProp,
+  editPropAt,
+  shift,
+  insertAt,
+  resolveValue,
+} from '../src/array-edit-utils';
 
 test('TESTING move func', () => {
   const inputArray = ['a', 'b', 'c', 'd', 'e'];
@@ -37,9 +47,14 @@ test('TESTING moveDown func', () => {
 
 test('TESTING editAt func', () => {
   const inputArray = [1, 2, 3];
-  const resultArray = editAt(inputArray, 4, 1);
+
+  const resultArray1 = editAt(inputArray, 4, 1);
+  expect(resultArray1).toEqual(expect.arrayContaining([1, 4, 3]));
+
+  const resultArray2 = editAt(inputArray, (el) => el + 10, 1);
+  expect(resultArray2).toEqual(expect.arrayContaining([1, 12, 3]));
+
   expect(inputArray).toEqual(expect.arrayContaining([1, 2, 3]));
-  expect(resultArray).toEqual(expect.arrayContaining([1, 4, 3]));
 });
 
 test('TESTING editByProp func', () => {
@@ -121,4 +136,10 @@ test('TESTING insertAt func', () => {
   expect(insertAt(inputArray, 100, 10)).toEqual(expect.arrayContaining([0, 1, 2, 3, 4, 5, 6, 7, 8, 10]));
 
   expect(inputArray).toEqual(expect.arrayContaining([0, 1, 2, 3, 4, 5, 6, 7, 8]));
+});
+
+test('TESTING resolveValue func', () => {
+  expect(resolveValue(10, 11)).toEqual(10);
+
+  expect(resolveValue((el) => el + 2, 11)).toEqual(13);
 });

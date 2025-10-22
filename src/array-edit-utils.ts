@@ -1,24 +1,43 @@
 import { isInRange } from '.';
 
 /**
+ * Resolves a value that can either be a direct value or a function (updater) returning a value.
+ *
+ * If the provided `value` is a function, it is called with the current value (`current`)
+ * and its result is returned. Otherwise, the `value` itself is returned as-is.
+ * @param value or a function that returns a value based on the previous one.
+ * @param current - The current value to pass to the updater function, if applicable.
+ * @returns The resolved value.
+ */
+export const resolveValue = <T>(value: T | ((el: T) => T), current: T): T => {
+  return typeof value === 'function' ? (value as (x: T) => T)(current) : value;
+};
+
+/**
  * Returns array copy with changed value at given index
+ * If index isn't in range returns orginal array reference
  * @param array Original array
  * @param value New value
  * @param index Index for new value
  */
-export const editAt = <T>(array: T[], value: T, index: number): T[] => array.map((v, i) => (i === index ? value : v));
+export const editAt = <T>(array: T[], value: T | ((el: T) => T), index: number): T[] => {
+  if (!isInRange(array, index)) {
+    return array;
+  }
+
+  return array.map((v, i) => (i === index ? resolveValue(value, v) : v));
+};
 
 /**
  * Edit value at given index;
+ * If index isn't in range returns orginal array reference
  * @param array Original array
  * @param key Property name of value to change
  * @param propValue New property value
  * @param index Index for value to change
  */
 export const editPropAt = <T, K extends keyof T>(array: T[], key: K, propValue: T[K], index: number): T[] => {
-  const element = { ...array[index] };
-  element[key] = propValue;
-  return editAt(array, element, index);
+  return editAt(array, (element) => ({ ...element, [key]: propValue }), index);
 };
 
 /**

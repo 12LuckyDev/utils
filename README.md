@@ -140,6 +140,13 @@ reshuffle(array); // result: [[3, 1, 2] , [2, 0, 1]]
 reshuffle([3, 1, 2], [2, 0, 1]); // result: [[1, 2, 3] , [2, 0, 1]]
 ```
 
+### resolveValue
+
+```javascript
+resolveValue(10, 11); // result: 10
+resolveValue((el) => el + 2, 11); // result: 13
+```
+
 ### editAt
 
 ```javascript
@@ -156,6 +163,15 @@ editAt(input, { id: 4, name: 'Ann' }, 1);
     result: [
         {id: 1, name: "Kevin"},
         {id: 4, name: "Ann"},
+        {id: 3, name: "Bob"}
+]
+**/
+
+editAt(input, (el) => ({..el, name: 'Lucy'}), 1);
+/**
+    result: [
+        {id: 1, name: "Kevin"},
+        {id: 2, name: "Lucy"},
         {id: 3, name: "Bob"}
 ]
 **/
