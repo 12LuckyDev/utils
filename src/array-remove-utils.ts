@@ -35,7 +35,7 @@ export const toggleByProp = <T, K extends keyof T>(array: T[], key: K, value: T)
 
 /**
  * Returns array copy without value from given index(es)
- * If index(s) aren't in range returns orginal array istance
+ * If index(s) aren't in range returns orginal array reference
  * @param array Original array
  * @param index Index(es) of value(s) to remove
  */

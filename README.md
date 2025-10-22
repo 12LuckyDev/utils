@@ -435,7 +435,9 @@ forEachProp(input, (v) => console.log(v));
  */
 ```
 
-mappify
+## Changelog
+
+[All changes are here](./CHANGELOG.md)
 
 ## License
 
