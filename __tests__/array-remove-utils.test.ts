@@ -142,9 +142,17 @@ test('TESTING toggleByProp func', () => {
 
 test('TESTING removeAt func', () => {
   const inputArray = [1, 2, 3];
-  const resultArray = removeAt(inputArray, 1);
+
+  const resultArray1 = removeAt(inputArray, 1);
+  expect(resultArray1).toEqual(expect.arrayContaining([1, 3]));
+
+  const resultArray2 = removeAt(inputArray, [0, 2]);
+  expect(resultArray2).toEqual(expect.arrayContaining([2]));
+
+  const resultArray3 = removeAt(inputArray, -1);
+  expect(resultArray3).toEqual(inputArray);
+
   expect(inputArray).toEqual(expect.arrayContaining([1, 2, 3]));
-  expect(resultArray).toEqual(expect.arrayContaining([1, 3]));
 });
 
 test('TESTING popAt func', () => {

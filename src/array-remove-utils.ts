@@ -1,4 +1,4 @@
-import { merge, add } from '.';
+import { merge, add, isInRange } from '.';
 
 /**
  * Returns array without given value
@@ -34,11 +34,19 @@ export const toggleByProp = <T, K extends keyof T>(array: T[], key: K, value: T)
 };
 
 /**
- * Returns array copy without value from given index
+ * Returns array copy without value from given index(es)
+ * If index(s) aren't in range returns orginal array istance
  * @param array Original array
- * @param index Index of value to remove
+ * @param index Index(es) of value(s) to remove
  */
-export const removeAt = <T>(array: T[], index: number): T[] => merge(array.slice(0, index), array.slice(index + 1));
+export const removeAt = <T>(array: T[], index: number | number[]): T[] => {
+  if (Array.isArray(index)) {
+    const indexesInRange = index.filter((i) => isInRange(index, i));
+    return indexesInRange.length ? array.filter((_, i) => !index.includes(i)) : array;
+  }
+
+  return isInRange(array, index) ? merge(array.slice(0, index), array.slice(index + 1)) : array;
+};
 
 /**
  * Returns an array to be deconstructed with the value of the given index and array copy without value from given index
