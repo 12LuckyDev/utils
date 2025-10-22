@@ -424,19 +424,14 @@ mapToObjectUsing(inputArray, 'value', (v) => {
 ### forEachProp
 
 ```javascript
-import { mappify } from '@12luckydev/utils';
-const inputArray = [
-  { id: 1, value: 'a' },
-  { id: 2, value: 'b' },
-  { id: 3, value: 'c' },
-];
+import { forEachProp } from '@12luckydev/utils';
+const input = { a: 1, b: 2, c: 3 };
 
-mappify(inputArray, 'id');
+forEachProp(input, (v) => console.log(v));
 /**
- * Map:
- * 1 => { id: 1, value: 'a' }
- * 2 => { id: 2, value: 'b' }
- * 3 => { id: 3, value: 'c' }
+  1
+  2
+  3
  */
 ```
 
