@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- added `diff` func
+
 ### Changed
 
-- removeAt now accept array of indexes too.
-- removeAt now check if given index(es) are in range - if not, it will return the original array reference
+- `removeAt` now accept array of indexes too.
+- `removeAt` now check if given index(es) are in range - if not, it will return the original array reference

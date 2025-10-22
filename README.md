@@ -435,6 +435,56 @@ forEachProp(input, (v) => console.log(v));
  */
 ```
 
+### diff
+
+```javascript
+import { diff } from '@12luckydev/utils';
+
+const inputArray1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const result1 = diff(inputArray1, [2, 3, 4, 10], (a, b) => a === b);
+
+/**
+  result1: [
+  // [added, removed] 
+    [ [ 10 ], [ 1, 5, 6, 7, 8, 9 ] ],
+  // [the same from new array, from input array]
+    [ [ 2, 3, 4 ], [ 2, 3, 4 ] ],
+  // [edited from new array, from input array] - no given editCheck func - so empty
+    [ [], [] ]
+  ]
+ */
+
+const inputArray = [
+  { id: 1, v: '1' },
+  { id: 2, v: '2' },
+  { id: 3, v: '3' },
+  { id: 4, v: '4' },
+  { id: 5, v: '5' },
+];
+
+const result2 = diff(
+  inputArray,
+  [
+    { id: 2, v: '2' },
+    { id: 3, v: '3.1' },
+    { id: 4, v: '4' },
+    { id: 6, v: '6' },
+  ],
+  (a, b) => a.id === b.id,
+  (a, b) => a.v === b.v,
+);
+
+/**
+  result2: [
+  // [added, removed] 
+   [ { id: 6, v: '6' } ], [ { id: 1, v: '1' }, { id: 5, v: '5' } ] ],
+  // [the same from new array, from input array]
+   [ [ { id: 2, v: '2' }, { id: 4, v: '4' } ], [ { id: 2, v: '2' }, { id: 4, v: '4' } ]],
+  // [edited from new array, from input array]
+   [ [ { id: 3, v: '3.1' } ], [ { id: 3, v: '3' } ] ]
+ */
+```
+
 ## Changelog
 
 [All changes are here](./CHANGELOG.md)
