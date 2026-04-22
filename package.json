@@ -10,7 +10,7 @@
   ],
   "source": "src/index.ts",
   "main": "lib/cjs/index.js",
-  "types": "lib/cjs/index.d.ts",
+  "types": "lib/types/index.d.ts",
   "files": [
     "lib"
   ],
