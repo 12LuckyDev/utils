@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@12luckydev/utils": "file:../12luckydev-utils-e2e.tgz"
+  },
+  "scripts": {
+    "e2e-test": "node test.js"
+  },
+  "volta": {
+    "node": "24.15.0",
+    "npm": "11.13.0"
+  }
+}
