@@ -9,34 +9,40 @@
     "delete"
   ],
   "source": "src/index.ts",
-  "main": "lib/cjs/index.js",
-  "types": "lib/cjs/index.d.ts",
+  "sideEffects": false,
+  "type": "module",
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./lib/index.cjs",
+      "import": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    }
+  },
+  "engines": {
+    "node": ">=14"
+  },
   "files": [
     "lib"
   ],
-  "exports": {
-    ".": {
-      "types": "./lib/types/index.d.ts",
-      "require": "./lib/cjs/index.js",
-      "import": "./lib/esm/index.js",
-      "default": "./lib/esm/index.js"
-    }
-  },
   "scripts": {
     "dev": "vitest",
-    "test": "vitest run",
-    "build": "npm-run-all build:clean build:cjs build:esm build:types",
+    "build": "npm-run-all build:*",
     "build:clean": "rimraf lib",
-    "build:cjs": "tsc -p tsconfig.cjs.json && echo {\"type\": \"commonjs\"} > lib/cjs/package.json",
-    "build:esm": "tsc -p tsconfig.esm.json && echo {\"type\": \"module\"} > lib/esm/package.json",
-    "build:types": "tsc -p tsconfig.types.json",
+    "build:tsup": "tsup",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint .",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "test": "vitest run",
+    "e2e": "npm-run-all e2e:*",
+    "e2e:pack": "npm pack --pack-destination e2e",
+    "e2e:rename": "node e2e/npm-pack-rename.js"
   },
   "author": "12luckydev",
   "license": "MIT",
