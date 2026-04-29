@@ -1,2 +1,4 @@
 node_modules
 /lib
+
+e2e/12luckydev-utils*.tgz
