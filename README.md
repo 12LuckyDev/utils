@@ -456,6 +456,20 @@ resolveArray(10); // result: [10]
 resolveArray([10]); // result: [10]
 ```
 
+## Async helper funtions
+
+### withMinDuration
+
+```javascript
+withMinDuration(async () => {
+  await takesSomeTime(), 1000;
+}); // will take at least 1 second.
+
+const number = await withMinDuration(async () => {
+  await takesSomeTimeAndReturnNumber(), 3000;
+}); // will take at least 3 second and return result of takesSomeTimeAndReturnNumber().
+```
+
 ## ArrayPipe
 
 Available utils operations:

@@ -1,5 +1,6 @@
 export * from './add';
 export * from './array-pipe';
+export * from './async';
 export * from './common';
 export * from './dimension';
 export * from './edit';
